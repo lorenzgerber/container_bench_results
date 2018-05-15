@@ -1,8 +1,3 @@
-Iozone: Performance Test of File I/O
-Version : 3.465 $
-Compiled for 64 bit mode.
-Build: linux-AMD64
-	
                                                               random    random     bkwd    record    stride                                    
               kB  reclen    write  rewrite    read    reread    read     write     read   rewrite      read   fwrite frewrite    fread  freread
              512       4   788702  1518938  2285029  2039772  1383861  1204552  1446306   1379416   1101383  1531941  1450212  2169601  1368865
