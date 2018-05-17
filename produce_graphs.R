@@ -124,6 +124,28 @@ createData<- function(){
          lty=1,
          lwd=5,
          col=bpCols)
+
+  #
+  # Netperf Benchmark
+  #
+  netperf_bandwith<-c(734.58, 735.26, 683.73, 735.54)
+  netperf_latency<-c(177.82, 177.53, 190.75, 177.44)
+  netperf_cpu<-c(2.53, 4.32, 10.67, 10.11)
+ 
+  # Bandwith
+  bw<-barplot(netperf_bandwith, xpd=FALSE, ylim=c(600,800), ylab='Bandwith MB/sec')
+  axis(side=1,at=bw,labels=c("Virtual Machine", "Docker Host", "Docker overlay", "Singularity"))
+  box(bty="l")
+  
+  # Latency
+  bw<-barplot(netperf_latency, xpd=FALSE, ylim=c(150,200), ylab='Latency microseconds')
+  axis(side=1,at=bw,labels=c("Virtual Machine", "Docker Host", "Docker overlay", "Singularity"))
+  box(bty="l")
+  
+  # CPU Usage
+  bw<-barplot(netperf_cpu, xpd=FALSE, ylim=c(2,12), ylab='CPU Usage %')
+  axis(side=1,at=bw,labels=c("Virtual Machine", "Docker Host", "Docker overlay", "Singularity"))
+  box(bty="l")
   
   
   rawData<-c(1,2,3,4)
