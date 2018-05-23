@@ -14,7 +14,7 @@ createData<- function(){
   
   
   #
-  # IOPERF Benchmark Dataprep
+  # IOzoneF Benchmark Dataprep
   #
   setwd('~/git/container_bench_results/ioperf/vm')
   vm_ioperf<-read.table('docker_io.out', header=TRUE,skip=1)
@@ -33,16 +33,16 @@ createData<- function(){
   #
   # Read/Write
   #
-  ioperf_readwrite<-cbind(vm_ioperf[,3], 
-                     docker_nobind_ioperf[,3], 
-                     docker_bind_ioperf[,3],
-                     singularity_nobind_ioperf[,3],
-                     singularity_bind_ioperf[,3],
-                     vm_ioperf[,5], 
+  ioperf_readwrite<-cbind(vm_ioperf[,5], 
                      docker_nobind_ioperf[,5], 
                      docker_bind_ioperf[,5],
                      singularity_nobind_ioperf[,5],
-                     singularity_bind_ioperf[,5])
+                     singularity_bind_ioperf[,5],
+                     vm_ioperf[,3],
+                     docker_nobind_ioperf[,3],
+                     docker_bind_ioperf[,3],
+                     singularity_nobind_ioperf[,3],
+                     singularity_bind_ioperf[,3])
   
   bpCols=c('blue', 'red', 'orange', 'green', 'cyan')
   boxplot(ioperf_readwrite, 
@@ -52,7 +52,7 @@ createData<- function(){
           ylab='GB/sec')
   axis(1, at=c(3, 9), labels=c('read', 'write'))
   
-  legend(1, 2.7, c('virtual machine', 
+  legend(7, 2.7, c('virtual machine', 
                        'docker no-bind', 
                        'docker bind',
                        'singularity no-bind',
